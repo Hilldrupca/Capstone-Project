@@ -4,7 +4,7 @@
  * Utility class to add vertices and edges to a graph
  *
  */
-package util;
+package Loader;
 
 import java.io.File;
 import java.util.HashSet;
@@ -17,7 +17,7 @@ public class GraphLoader {
      * The file should consist of lines with 2 integers each, corresponding
      * to a "from" vertex and a "to" vertex.
      */ 
-    public static void loadGraph(graph.Graph g, String filename) {
+    public static void loadGraph(Graph.Graph g, String filename) {
         Set<Integer> seen = new HashSet<Integer>();
         Scanner sc;
         try {

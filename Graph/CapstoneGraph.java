@@ -1,4 +1,4 @@
-package graph;
+package Graph;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.ArrayList;
 
-import util.GraphLoader;
+import Loader.GraphLoader;
 
 public class CapstoneGraph implements Graph{
 	public HashMap<Integer,HashSet<Integer>> SOCIAL_NETWORK_GRAPH;
@@ -176,7 +176,6 @@ public class CapstoneGraph implements Graph{
 			double a = 0; //Neighbors who have adopted new behavior
 			double b = 0; //Neighbors with default behavior
 			
-			long ST = System.nanoTime();
 			//Determine how many of j's neighbors have behavior a or b.
 			for(int k : SOCIAL_NETWORK_GRAPH.get(j)) {
 				if(ADOPTED_STATE.containsKey(k))
@@ -185,9 +184,7 @@ public class CapstoneGraph implements Graph{
 					b++;
 
 			}
-			long ET = System.nanoTime();
-			projTime += ((double)ET-ST)/1000000000;
-			
+
 			behaviorChange = checkIfBehaviorChange(a,b,j);
 			
 			if(behaviorChange == true)
@@ -265,8 +262,6 @@ public class CapstoneGraph implements Graph{
 		 * False will only iterate the flow of information with a max of initialAdopters. No looping. 
 		 */
 		boolean incrementLoopInitialAdopters = false;  //Set to false to help reduce run times
-		
-		long startTime = System.nanoTime();
 
 		for(double j = startingRatio; j <= endRatio; j += increment) {
 			System.out.println("Current ratio of A/B is " + j);
@@ -277,15 +272,6 @@ public class CapstoneGraph implements Graph{
 			graph.printAnalyzed();
 			System.out.println("");
 		}
-		
-		long endTime = System.nanoTime();
-		double totalTime = ((double)endTime - startTime)/1000000000;
-		System.out.println("Total run time (seconds): " + totalTime);
-		System.out.println(graph.projTime);
-		int j = 0;
-		for(HashSet<Integer> k : graph.SOCIAL_NETWORK_GRAPH.values()){
-			j += k.size();
-		}
-		System.out.println(graph.SOCIAL_NETWORK_GRAPH.size() + " " + j);
+
 	}
 }
