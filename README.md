@@ -17,4 +17,4 @@ This folder contains the Graph* interface, CapstoneGraph and CapstoneGraphAnalyz
 # Loader
 This folder contains the GraphLoader class used by CapstoneGraph to create the graph objects from the .txt files in the Data folder.
 
-*Note I did not create the GraphLoader class. This filie was provided to us by UCSD, and I did not make any modifications to it nor do I take any credit for it.
+* Note I did not create the GraphLoader class. This filie was provided to us by UCSD, and I did not make any modifications to it nor do I take any credit for it.
